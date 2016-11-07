@@ -32,7 +32,7 @@ long prod_bq[P] = {0, 1, 1, 2}, cons_bq[C] = {0, 1, 2, 2}; // Direcionamento de 
 
 // Retorna um endereço de memória hexadecimal em string (utilizado para mapear as filas para um index)
 string get_address(BlockingQueue *Q) {
-  int adr_int = (int) Q;
+  int adr_int = *((int*) Q);
   char *adr_char = new char[32];
   sprintf(adr_char, "%x", adr_int);
   string adr = adr_char;
