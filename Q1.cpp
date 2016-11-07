@@ -10,7 +10,7 @@ void read(int file) {
   // Cria e abre a stream do arquivo <file>.in
   stringstream ssm;
   ssm << file << ".in";
-  string filename = ssm.str(), line;
+  string filename = ssm.str();
   ifstream myfile;
   myfile.open(filename.c_str());
 
