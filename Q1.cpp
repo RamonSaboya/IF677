@@ -41,7 +41,7 @@ void *thread_func(void *arg) {
       pthread_mutex_unlock(&global_mutex);
       break;
     }
-    file = n-- + 1; // ID do arquivo que será lido
+    file = n--; // ID do arquivo que será lido
     pthread_mutex_unlock(&global_mutex);
     read(file);
   }
