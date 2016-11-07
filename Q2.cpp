@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #include <pthread.h>
 // Tamanho do sistema linear
-#define M 4
+#define M 5
 // Quantidade de execuções (quanto maior, mais preciso será o resultado)
 #define P 10
 using namespace std;
@@ -9,10 +9,10 @@ using namespace std;
 pthread_barrier_t barrier;
 
 vector<int> work[4]; // Tarefas que serão executadas por cada thread
-double a[M][M] = {{10, -1, 2, 0}, {-1, 11, -1, 3}, {2, -1, 10, -1}, {0, 3, -1, 8}}; // Equações
-double b[M] = {6, 25, -11, 15}; // Resultados das equações
+double a[M][M] = {{2,  3,  1, -2, -1}, {-1, -1,  3,  1,  3}, { 1,  1,  2, -1,  3}, {-1,  3,  1,  3,  5}, { 1,  2, -1,  3, -1}}; // Equações
+double b[M] = {-2, -1, 3, 3, -2}; // Resultados das equações
 double x[M];
-double cx[M] = {1, 1, 1, 1}; // Valor inicial associados aos x1, x2, ..., xi, ..., xM
+double cx[M] = {1, 1, 1, 1, 1}; // Valor inicial associados aos x1, x2, ..., xi, ..., xM
 
 // Executa todas as tarefas associadas a thread
 void *function(void *arg) {
@@ -70,7 +70,7 @@ int main() {
     }
 
     // Output teste para ver os valores aproximados ao final de cada execução
-    cout << "P  = " << (k + 1) << endl;
+    cout << "Iteração  = " << (k + 1) << endl;
     for(int i = 0; i < M; i++) {
       cout << "X" << i << " = " << x[i] << endl;
     }
